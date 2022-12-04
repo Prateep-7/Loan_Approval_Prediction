@@ -1,0 +1,167 @@
+{% extends 'index.html' %}
+{% block apply %}
+<main>
+
+    <!-- Apply Area Start -->
+    <div class="apply-area pt-150 pb-150">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="apply-wrapper">
+                        <!-- Form -->
+                        <form id="one" action="\applyLoan" method="post">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                   <div class="single-form">
+                                        <label>* LOAN AMOUNT ($) in thousands </label>
+                                        <input type="number" name="loan_amount" id="loan_amount" required="required">
+                                   </div>
+                                </div>
+                               <!-- Nice Select -->
+                                <div class="col-lg-6">
+                                   <div class="single-form">
+                                        <label>Loan Amount Term (in days)</label>
+                                        <div class="select-option mb-10">
+                                            <input type="number" name="loan_amount_term" id="loan_amount_term" required="required">
+                                        </div>
+                                   </div>
+                                </div>
+                                <!-- Radio -->
+                                <div class="col-lg-12">
+                                   <div class="single-form  d-flex">
+                                        <label>Gender :</label>
+                                        <!--Radio Select -->
+                                       <div class="select-radio6">
+                                            <div class="radio">
+                                                <input id="gender" value="Male" name="gender" type="radio" checked="">
+                                                <label for="radio-6" class="radio-label">Male</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input id="gender" value="Female"name="gender" type="radio">
+                                                <label for="radio-7" class="radio-label">Female</label>
+                                            </div>
+                                        </div>
+                                   </div>
+                                </div>
+                                <!-- First Name -->
+                                <div class="col-lg-6">
+                                    <div class="single-form">
+                                         <label>Applicant Income ($) (Monthly)</label>
+                                         <input type="number" name="applicant_income" id="applicant_income" required="required">
+                                    </div>
+                                 </div>
+                                 <!-- Last Name -->
+                                <div class="col-lg-6">
+                                    <div class="single-form">
+                                         <label>Co-applicant Income ($) (Monthly)</label>
+                                         <input type="number" name="coapplicant_income" id="coapplicant_income" required="required">
+                                    </div>
+                                 </div>
+                                 <!-- Nice Select -->
+                               <!-- Nice Select -->
+                                <div class="col-lg-6">
+                                    <div class="single-form">
+                                        <label>NUMBER OF DEPENDANTS</label>
+                                        <div class="select-option mb-10">
+                                            <select name="dependents" id="dependents">
+                                                <option value="0">Choose Option</option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3+</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- First Name -->
+                                <div class="col-lg-6">
+                                    <div class="single-form">
+                                        <label>Education</label>
+                                        <div class="select-option mb-10">
+                                        <select name="education" id="education" required="required">
+                                            <option value="Graduate">Graduate</option>
+                                            <option value="Not Graduate">Not Graduate</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <!-- TOWN/CITY-->
+                                <div class="col-lg-6">
+                                    <div class="single-form">
+                                        <label>Area of Residence</label>
+                                        <div class="select-option mb-10">
+                                        <select name="property_area" id="property_area" required="required">
+                                            <option value="Urban">Urban</option>
+                                            <option value="Rural">Rural</option>
+                                            <option value="Semiurban">Semi-Urban</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="single-form">
+                                        <label>MARITAL STATUS</label>
+                                        <div class="select-option mb-10">
+                                            <select name="married" id="married" required="required">
+                                                <option value="No">No</option>
+                                                <option value="Yes">Yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="single-form">
+                                        <label>Self Employed</label>
+                                        <div class="select-option mb-10">
+                                            <select name="self_employed" id="self_employed" required="required">
+                                                <option value="No">No</option>
+                                                <option value="Yes">Yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="single-form">
+                                        <label>Credit History</label>
+                                        <div class="select-option mb-10">
+                                        <select name="credit_history" id="credit_history" required="required">
+                                        <option value="0">No  (Bad History)</option>
+                                        <option value="1">Yes (Good History)</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>                                                         
+                            </div> 
+                    </form>
+                    <div class="d-flex justify-content-center">
+                        <input id="submit" type="submit" form="one" value="Submit" class="btn apply-btn mt-30" onload="scrollDown()" onclick="fn();">    
+                    </div>    
+                        <br><br>
+                        <div class="d-flex justify-content-center" style="font: bodoni; font-size: 2rem; font-weight: bold;">
+                            {{ prediction_text }}
+                        </div>
+                        <!-- End From -->
+                        <!-- Form btn -->
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Apply Area End -->
+    <script>function fn(event){
+        event.preventDefault();
+    }
+    </script>
+   <script>
+    $(document).ready(function() {
+        $("#submit").click(function() {
+            $(document).scrollTop($(document).height());
+        });
+    });
+</script>
+</main>
+{% endblock %}
